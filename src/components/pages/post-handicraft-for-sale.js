@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../style/post-handicraft-for-sale.css';
 import {ethers} from 'ethers'
-//import {useRouter} from 'next/router'
+import {useRouter} from 'next/router'
 import {create as ipfsHttpClient} from 'ipfs-http-client'
 import Web3Modal from 'web3modal'
 import {marketplaceAddress} from '../../config'
@@ -13,7 +13,7 @@ const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 export default function PostHandicraftForSale() {
     const [fileUrl, setFileUrl] = useState(null)
     const [formInput, updateFormInput] = useState({price: '', name: '', description: ''})
-   // const router = useRouter()
+   const router = useRouter()
 
     async function onChange(e) {
         /* upload image to IPFS */
@@ -63,6 +63,7 @@ export default function PostHandicraftForSale() {
         listingPrice = listingPrice.toString()
         let transaction = await contract.createToken(url, price, {value: listingPrice})
         await transaction.wait()
+        router.push("/")
     }
 
     return (
