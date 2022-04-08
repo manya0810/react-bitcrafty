@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../../App.css';
+import './ViewHandicrafts.css';
 import { ethers } from 'ethers'
 import Web3Modal from 'web3modal';
 import axios from 'axios'
@@ -73,14 +73,18 @@ function ViewHandicrafts() {
         <div className="nftsListedBySellers">
             {
                 nfts.map((nft, i) =>
-                    <div key={i} className="border shadow rounded-xl overflow-hidden">
-                        Cards(nft)
-                        <button className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>Buy</button>
+                    <div key={i} className="card">
+                            <img src={nft.image} className="NftImage"/>
+                            <h1>Name:{nft.name}</h1>
+                            <p className="price">Price:{nft.price} ETH</p>
+                            <p>Description:{nft.description}</p>
+                            <p>
+                                <button className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>Buy</button>
+                            </p>
                     </div>
                 )
             }
         </div>
-      {/*<Cards />*/}
     </>
   );
 }

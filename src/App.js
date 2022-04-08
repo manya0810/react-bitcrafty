@@ -2,7 +2,6 @@ import './App.css';
 import Navbar from './components/navbar'
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import ViewHandicrafts from "./components/pages/ViewHandicrafts";
 import CreateNft from "./components/pages/creat-nft";
 import ShowOwnedNfts from "./components/pages/owned-handicrafts";

@@ -54,11 +54,6 @@ function CreateNft() {
         }
     }
 
-    function delay(n){
-        return new Promise(function(resolve){
-            setTimeout(resolve,n*1000);
-        });
-    }
     async function listNFTForSale() {
         try {
             const web3Modal = new Web3Modal()
@@ -72,7 +67,6 @@ function CreateNft() {
             const price = ethers.utils.parseUnits(formInput.price, 'ether');
             let contract = new ethers.Contract(marketplaceAddress, NFTMarketPlace.abi, signer)
             let listingPrice = await contract.getListingPrice()
-            // listingPrice = listingPrice.toString()
             console.log(listingPrice)
             let transaction = await contract.createToken(url, price, {value: listingPrice})
             await transaction.wait()

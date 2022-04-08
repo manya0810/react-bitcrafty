@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background-color: #000;
     height: 80px;
     display: flex;
     align-items: center;
@@ -28,7 +28,8 @@
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
-    text-align: center;
+    text-align:end;
+    flex-direction: column;
     width: 60vw;
     justify-content: right;
     margin-right: 2rem;
@@ -63,5 +64,5 @@
     top: 10px;
     left: 0;
     height: 60px;
-    text-align: center;
+    align-items: start;
 }
