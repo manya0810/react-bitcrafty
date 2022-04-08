@@ -63,7 +63,7 @@ export default function PostHandicraftForSale() {
         listingPrice = listingPrice.toString()
         let transaction = await contract.createToken(url, price, {value: listingPrice})
         await transaction.wait()
-        router.push("/")
+        window.location.assign('/')
     }
 
     return (

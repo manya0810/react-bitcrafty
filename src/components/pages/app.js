@@ -6,6 +6,7 @@ import ViewAllListedHandicrafts from "./view-all-listed-handicrafts";
 import PostHandicraftForSale from "./post-handicraft-for-sale";
 import ViewAllOwnedHandicrafts from "./view-all-owned-handicraft";
 import ViewUserListedHandicrafts from "./view-user-listed-handicraft";
+import ResellNft from "./resell-nft";
 
 function app() {
   return (
@@ -17,6 +18,7 @@ function app() {
                 <Route path="/post-handicraft-for-sale" element={<PostHandicraftForSale/>} />
                 <Route path="/view-all-owned-handicraft" element={<ViewAllOwnedHandicrafts/>} />
                 <Route path="/view-user-listed-handicraft" element={<ViewUserListedHandicrafts/>} />
+                <Route path="/resell-nft" element={<ResellNft/>} />
             </Routes>
         </Router>
     </>

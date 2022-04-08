@@ -40,6 +40,7 @@ function ViewAllOwnedHandicrafts() {
                 image: meta.data.image,
                 name: meta.data.name,
                 description: meta.data.description,
+                tokenUri
             }
             return item
         }))
@@ -50,18 +51,9 @@ function ViewAllOwnedHandicrafts() {
     }
     async function sellNft(nft) {
         /* needs the user to sign the transaction, so will use Web3Provider and sign it */
-        const web3Modal = new Web3Modal()
-        const connection = await web3Modal.connect()
-        const provider = new ethers.providers.Web3Provider(connection)
-        const signer = provider.getSigner()
-        const contract = new ethers.Contract(marketplaceAddress, NFTMarketPlace.abi, signer)
-
+        alert(nft.tokenUri)
+        window.location.assign('/resell-nft?tokenId='+nft.tokenId+'&tokenURI='+nft.tokenUri)
         /* user will be prompted to pay the asking proces to complete the transaction */
-        const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-        const transaction = await contract.resellToken(nft.tokenId, {
-            value: price
-        })
-        await transaction.wait()
         loadMyNFTs()
     }
 
